@@ -15,6 +15,8 @@ import Aside from "@/components/layouts/global/aside.tsx";
 import classes from "./app-shell.module.css";
 import { useTrialEndAction } from "@/ee/hooks/use-trial-end-action.tsx";
 import { useToggleSidebar } from "@/components/layouts/global/hooks/hooks/use-toggle-sidebar.ts";
+import { searchSpotlight } from "@/features/search/constants";
+import { useWindowEvent } from "@mantine/hooks";
 
 export default function GlobalAppShell({
   children,
@@ -29,6 +31,14 @@ export default function GlobalAppShell({
   const [sidebarWidth, setSidebarWidth] = useAtom(sidebarWidthAtom);
   const [isResizing, setIsResizing] = useState(false);
   const sidebarRef = useRef(null);
+
+  useWindowEvent("keydown", (event) => {
+    const key = event.key.toLowerCase();
+    if ((event.metaKey || event.ctrlKey) && (key === "p" || key === "k")) {
+      event.preventDefault();
+      searchSpotlight.open();
+    }
+  });
 
   const startResizing = React.useCallback((mouseDownEvent) => {
     mouseDownEvent.preventDefault();
