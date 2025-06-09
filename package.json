@@ -15,10 +15,12 @@
     "server:dev": "nx run server:start:dev",
     "server:start": "nx run server:start:prod",
     "email:dev": "nx run server:email:dev",
-    "dev": "pnpm concurrently -n \"frontend,backend\" -c \"cyan,green\" \"pnpm run client:dev\" \"pnpm run server:dev\""
+    "dev": "pnpm concurrently -n \"frontend,backend\" -c \"cyan,green\" \"pnpm run client:dev\" \"pnpm run server:dev\"",
+    "dev:desktop": "concurrently -k -n server,client,electron \"pnpm --filter ./apps/server run start:dev\" \"pnpm --filter ./apps/client run dev\" \"wait-on http://localhost:5173 && electron ./apps/client/electron/main.ts\""
   },
   "dependencies": {
     "@docmost/editor-ext": "workspace:*",
+    "@electron/remote": "^2.1.2",
     "@hocuspocus/extension-redis": "^2.15.2",
     "@hocuspocus/provider": "^2.15.2",
     "@hocuspocus/server": "^2.15.2",
@@ -64,6 +66,8 @@
     "cross-env": "^7.0.3",
     "date-fns": "^4.1.0",
     "dompurify": "^3.2.4",
+    "electron": "^36.4.0",
+    "electron-store": "^10.0.1",
     "fractional-indexing-jittered": "^1.0.0",
     "ioredis": "^5.4.1",
     "jszip": "^3.10.1",
@@ -78,8 +82,10 @@
     "@types/bytes": "^3.1.5",
     "@types/uuid": "^10.0.0",
     "concurrently": "^9.1.2",
+    "electron-builder": "^26.0.12",
     "nx": "20.4.5",
-    "tsx": "^4.19.3"
+    "tsx": "^4.19.3",
+    "wait-on": "^8.0.3"
   },
   "workspaces": {
     "packages": [

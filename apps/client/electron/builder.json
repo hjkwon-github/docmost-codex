@@ -1,0 +1,8 @@
+{
+  "appId": "com.docmost.desktop",
+  "files": ["dist/**", "node_modules/**"],
+  "asar": true,
+  "mac": { "target": "dmg" },
+  "win": { "target": "nsis" },
+  "linux": { "target": "AppImage" }
+}
