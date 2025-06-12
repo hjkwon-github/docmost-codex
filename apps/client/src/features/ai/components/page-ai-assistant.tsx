@@ -19,7 +19,7 @@ export default function PageAiAssistant({ opened, onClose }: AiAssistantProps) {
   const [models, setModels] = useState<string[]>([]);
   const [provider, setProvider] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState("\");
+  const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function PageAiAssistant({ opened, onClose }: AiAssistantProps) {
     if (!provider || !input) return;
     const next = [...messages, { role: "user", content: input }];
     setMessages(next);
-    setInput("\");
+    setInput("");
     setLoading(true);
     try {
       const res = await sendChat({ provider, messages: next });
