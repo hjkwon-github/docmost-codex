@@ -3,6 +3,7 @@ import {
   IconArrowRight,
   IconArrowsHorizontal,
   IconDots,
+  IconSparkles,
   IconFileExport,
   IconHistory,
   IconLink,
@@ -12,7 +13,7 @@ import {
   IconTrash,
   IconWifiOff,
 } from "@tabler/icons-react";
-import React from "react";
+import React, { useState } from "react";
 import useToggleAside from "@/hooks/use-toggle-aside.tsx";
 import { useAtom } from "jotai";
 import { historyAtoms } from "@/features/page-history/atoms/history-atoms.ts";
@@ -36,6 +37,7 @@ import { formattedDate, timeAgo } from "@/lib/time.ts";
 import MovePageModal from "@/features/page/components/move-page-modal.tsx";
 import { useTimeAgo } from "@/hooks/use-time-ago.tsx";
 import ShareModal from "@/features/share/components/share-modal.tsx";
+import PageAiAssistant from "@/features/ai/components/page-ai-assistant";
 
 interface PageHeaderMenuProps {
   readOnly?: boolean;
@@ -44,6 +46,7 @@ export default function PageHeaderMenu({ readOnly }: PageHeaderMenuProps) {
   const { t } = useTranslation();
   const toggleAside = useToggleAside();
   const [yjsConnectionStatus] = useAtom(yjsConnectionStatusAtom);
+  const [aiOpen, setAiOpen] = useState(false);
 
   return (
     <>
@@ -80,6 +83,17 @@ export default function PageHeaderMenu({ readOnly }: PageHeaderMenuProps) {
           <IconList size={20} stroke={2} />
         </ActionIcon>
       </Tooltip>
+
+      <Tooltip label={t("AI Assistant")} openDelay={250} withArrow>
+        <ActionIcon
+          variant="default"
+          style={{ border: "none" }}
+          onClick={() => setAiOpen(true)}
+        >
+          <IconSparkles size={20} stroke={2} />
+        </ActionIcon>
+      </Tooltip>
+      <PageAiAssistant opened={aiOpen} onClose={() => setAiOpen(false)} />
 
       <PageActionMenu readOnly={readOnly} />
     </>

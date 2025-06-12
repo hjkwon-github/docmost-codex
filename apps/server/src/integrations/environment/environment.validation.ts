@@ -68,6 +68,27 @@ export class EnvironmentVariables {
   )
   @ValidateIf((obj) => obj.CLOUD === 'true'.toLowerCase())
   SUBDOMAIN_HOST: string;
+
+  @IsOptional()
+  OPENAI_API_KEY: string;
+
+  @IsOptional()
+  @IsUrl({ protocols: ['http', 'https'], require_tld: false })
+  OPENAI_API_BASE: string;
+
+  @IsOptional()
+  HUGGINGFACE_API_KEY: string;
+
+  @IsOptional()
+  @IsUrl({ protocols: ['http', 'https'], require_tld: false })
+  HUGGINGFACE_API_BASE: string;
+
+  @IsOptional()
+  @IsUrl({ protocols: ['http', 'https'], require_tld: false })
+  LOCAL_LLM_API_BASE: string;
+
+  @IsOptional()
+  LOCAL_LLM_MODEL: string;
 }
 
 export function validate(config: Record<string, any>) {
