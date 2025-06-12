@@ -189,4 +189,31 @@ export class EnvironmentService {
       .toLowerCase();
     return disable === 'true';
   }
+
+  getOpenaiApiKey(): string {
+    return this.configService.get<string>('OPENAI_API_KEY');
+  }
+
+  getOpenaiApiBase(): string {
+    return (
+      this.configService.get<string>('OPENAI_API_BASE') ||
+      'https://api.openai.com/v1'
+    );
+  }
+
+  getHuggingfaceApiKey(): string {
+    return this.configService.get<string>('HUGGINGFACE_API_KEY');
+  }
+
+  getHuggingfaceApiBase(): string {
+    return this.configService.get<string>('HUGGINGFACE_API_BASE');
+  }
+
+  getLocalLlmApiBase(): string {
+    return this.configService.get<string>('LOCAL_LLM_API_BASE');
+  }
+
+  getLocalLlmModel(): string {
+    return this.configService.get<string>('LOCAL_LLM_MODEL');
+  }
 }
