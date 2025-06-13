@@ -1,0 +1,63 @@
+/* AI Chat page styles with proper dark mode support */
+
+.header {
+  border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+
+.inputArea {
+  border-top: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+
+.messageUserBubble {
+  background-color: light-dark(var(--mantine-color-blue-0), var(--mantine-color-dark-6));
+  color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-dark-0));
+}
+
+.messageAssistantBubble {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+  color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-dark-0));
+}
+
+.loadingBubble {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+}
+
+.userName {
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-3));
+}
+
+.assistantName {
+  color: light-dark(var(--mantine-color-blue-7), var(--mantine-color-blue-3));
+}
+
+.messageText {
+  color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-dark-0)) !important;
+}
+
+.textInput {
+  input {
+    border: 2px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4)) !important;
+    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-7)) !important;
+    color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-dark-0)) !important;
+    
+    &:focus {
+      border-color: light-dark(var(--mantine-color-blue-5), var(--mantine-color-blue-4)) !important;
+    }
+
+    &::placeholder {
+      color: light-dark(var(--mantine-color-gray-5), var(--mantine-color-dark-3)) !important;
+    }
+  }
+}
+
+.emptyStateText {
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-3));
+}
+
+.timestampText {
+  color: light-dark(var(--mantine-color-dimmed), var(--mantine-color-dark-2));
+}
+
+.characterCountText {
+  color: light-dark(var(--mantine-color-dimmed), var(--mantine-color-dark-2));
+}
