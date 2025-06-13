@@ -1,5 +1,8 @@
 const APP_ROUTE = {
   HOME: "/home",
+  AI: {
+    CHAT: "/ai/chat",
+  },
   AUTH: {
     LOGIN: "/login",
     SIGNUP: "/signup",

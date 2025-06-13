@@ -14,8 +14,12 @@ import SidebarToggle from "@/components/ui/sidebar-toggle-button.tsx";
 import { useTranslation } from "react-i18next";
 import useTrial from "@/ee/hooks/use-trial.tsx";
 import { isCloud } from "@/lib/config.ts";
+import { IconSparkles } from "@tabler/icons-react";
 
-const links = [{ link: APP_ROUTE.HOME, label: "Home" }];
+const links = [
+  { link: APP_ROUTE.HOME, label: "Home" },
+  { link: APP_ROUTE.AI.CHAT, label: "AI Chat", icon: IconSparkles }
+];
 
 export function AppHeader() {
   const { t } = useTranslation();

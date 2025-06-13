@@ -68,7 +68,7 @@ export default function App() {
 
         <Route element={<Layout />}>
           <Route path={"/home"} element={<Home />} />
-          <Route path={"/ai"} element={<AiChat />} />
+          <Route path={"/ai/chat"} element={<AiChat />} />
           <Route path={"/s/:spaceSlug"} element={<SpaceHome />} />
           <Route
             path={"/s/:spaceSlug/p/:pageSlug"}
